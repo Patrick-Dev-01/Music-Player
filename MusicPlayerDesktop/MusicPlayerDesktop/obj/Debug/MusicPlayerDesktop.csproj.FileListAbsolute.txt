@@ -1,0 +1,15 @@
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\MusicPlayerDesktop.exe.config
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\MusicPlayerDesktop.exe
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\MusicPlayerDesktop.pdb
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csprojAssemblyReference.cache
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.MusicPlayer.resources
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.Properties.Resources.resources
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csproj.GenerateResource.cache
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csproj.CoreCompileInputs.cache
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.exe
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.pdb
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\Interop.WMPLib.dll
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\AxInterop.WMPLib.dll
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\Interop.WMPLib.dll
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\AxInterop.WMPLib.dll
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csproj.ResolveComReference.cache
