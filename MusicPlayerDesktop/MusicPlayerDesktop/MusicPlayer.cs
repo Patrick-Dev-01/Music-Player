@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace MusicPlayerDesktop
 {
@@ -18,6 +19,8 @@ namespace MusicPlayerDesktop
         }
 
         public bool isMaximized = false;
+        public string currentPlaying;
+        public WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
         public string[] paths, files;
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -28,22 +31,6 @@ namespace MusicPlayerDesktop
         private void minimizePictureBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void resizePictureBox_Click(object sender, EventArgs e)
-        {
-            
-            if (!isMaximized)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                isMaximized = true;
-            }
-
-            else {
-                this.WindowState = FormWindowState.Normal;
-                isMaximized = false;
-            }
-           
         }
 
         private void AddSongsButton_Click(object sender, EventArgs e)
@@ -57,15 +44,42 @@ namespace MusicPlayerDesktop
                 // mostrar as musicas na lista box
 
                 for (int i = 0; i < files.Length; i++) {
-                    listBox1.Items.Add(files[i]); // mostra as musicas na list box
+                    musicsListBox.Items.Add(files[i]); // mostra as musicas na list box
                 }
             }
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void musiclistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.URL = paths[listBox1.SelectedIndex];
+            // as musicas serão tocadas depois que o usuário clicar na própria musica
+            if (player.URL != "")
+            {
+                player.URL = paths[musicsListBox.SelectedIndex];
+            }
+            currentMusicLabel.Text = paths[musicsListBox.SelectedIndex].ToString();
+        }
+
+        private void playPictureBox_Click(object sender, EventArgs e)
+        {
+            // tocar a musica atual ao licar no botão play
+            player.URL = paths[musicsListBox.SelectedIndex];
+        }
+
+        private void nextPictureBox_Click(object sender, EventArgs e)
+        {
+            // se for a ultima música, ele volta para primeira
+            if (musicsListBox.SelectedIndex == paths.Length - 1)
+            {
+                player.URL = paths[musicsListBox.SelectedIndex = 0];
+            }
+
+            // se não, ele vai para próxima
+            else {
+                player.URL = paths[musicsListBox.SelectedIndex + 1];
+            }
+
+            currentMusicLabel.Text = paths[musicsListBox.SelectedIndex].ToString();
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
