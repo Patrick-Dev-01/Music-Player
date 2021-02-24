@@ -5,6 +5,12 @@
 ## Tecnologias
 
 - C#
+
+### 24/02/2021
+
+- Incluindo volume.
+- Correção nas trocas de musicas
+- Tempo atual musica e tempo total da musica.
 ### 23/02/2021
 
 - Cabeçalho personalizado
