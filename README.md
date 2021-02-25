@@ -10,6 +10,7 @@
 
 - Mudança na UI do Player e do Cabeçalho
 - Mudança no tamanho do icones
+- Mudança na UI do Volume
 
 ### 24/02/2021
 

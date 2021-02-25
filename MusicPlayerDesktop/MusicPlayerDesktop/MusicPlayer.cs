@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace MusicPlayerDesktop
 {
@@ -19,15 +20,14 @@ namespace MusicPlayerDesktop
             InitializeComponent();
         }
 
-        public bool isPlaying = false;
         public string nextMusicName;
         public string previousMusicName;
         public string[] paths, files;
 
         private void MusicPlayer_Load(object sender, EventArgs e)
-        {
-            //volumeTrackBar.Value = 20;
-            //volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
+        { 
+            volumeTrackBar.Value = 100;
+            volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -53,41 +53,37 @@ namespace MusicPlayerDesktop
                     musicListBox.Items.Add(files[i]); // mostra as musicas na list box
                 }
             }
-
         }
     
         private void musiclistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // as musicas serão tocadas depois que o usuário clicar na própria musica
             player.URL = paths[musicListBox.SelectedIndex];
+            currentMusicLabel.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             player.Ctlcontrols.play();
             // remover a extensão do arquivo .mp3
             musicPlaying.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             musicProgress.Start();
-            isPlaying = true;
+           
         }
 
         private void playPictureBox_Click(object sender, EventArgs e)
         {
             // tocar a musica atual ao licar no botão play
 
-            if (isPlaying)
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 player.Ctlcontrols.pause();
-                isPlaying = false;
             }
 
             else {
                 player.Ctlcontrols.play();
-                isPlaying = true;
-               
             }
         }
 
         private void nextPictureBox_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.stop();
-            isPlaying = false;
             // se for a ultima música, ele volta para primeira
             if (musicListBox.SelectedIndex == paths.Length - 1)
             {
@@ -103,14 +99,12 @@ namespace MusicPlayerDesktop
                 musicListBox.SelectedIndex = musicListBox.SelectedIndex + 1;
             }
 
-            musicPlaying.Text = nextMusicName.Substring(0, nextMusicName.Length - 4);
+            currentMusicLabel.Text = nextMusicName.Substring(0, nextMusicName.Length - 4); ;
             player.Ctlcontrols.play();
-            isPlaying = true;
         }
         private void previousPictureBox_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.stop();
-            isPlaying = false;
 
             if (musicListBox.SelectedIndex > 0)
             {
@@ -125,9 +119,8 @@ namespace MusicPlayerDesktop
                 musicListBox.SelectedIndex = files.Length - 1;
             }
           
-            musicPlaying.Text = previousMusicName.Substring(0, previousMusicName.Length - 4);
+            currentMusicLabel.Text = previousMusicName.Substring(0, previousMusicName.Length - 4);
             player.Ctlcontrols.play();
-            isPlaying = true;
         }
 
         private void musicProgress_Tick(object sender, EventArgs e)
@@ -136,24 +129,24 @@ namespace MusicPlayerDesktop
                 progressBarSlider.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 progressBarSlider.Value = (int)player.Ctlcontrols.currentPosition;
             }
+
             musicCurrentTime.Text = player.Ctlcontrols.currentPositionString;
             musicLength.Text = player.Ctlcontrols.currentItem.durationString.ToString();
         }
 
         private void volumeTrackBar_Scroll(object sender, EventArgs e)
         {
-            //player.settings.volume = volumeTrackBar.Value;
-            //volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
+            player.settings.volume = volumeTrackBar.Value;
+            volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
         }
 
-        private void progressBarSlider_Scroll(object sender, EventArgs e)
+        private void progressBarSlider_ValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void musicCurrentTime_Click(object sender, EventArgs e)
-        {
-
+            if (player.playState != WMPLib.WMPPlayState.wmppsPlaying) {
+                progressBarSlider.Value = (int)player.Ctlcontrols.currentPosition;
+                musicCurrentTime.Text = player.Ctlcontrols.currentPositionString;     
+            }
+           
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)

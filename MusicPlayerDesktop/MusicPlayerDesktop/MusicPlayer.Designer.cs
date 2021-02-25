@@ -45,9 +45,15 @@
             this.nextPictureBox = new System.Windows.Forms.PictureBox();
             this.musicLength = new System.Windows.Forms.Label();
             this.siticoneGradientPanel1 = new Siticone.UI.WinForms.SiticoneGradientPanel();
+            this.volumeLabel = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.volumeTrackBar = new Siticone.UI.WinForms.SiticoneTrackBar();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.currentMusicLabel = new System.Windows.Forms.Label();
             this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.minimizePictureBox = new System.Windows.Forms.PictureBox();
             this.siticoneGradientPanel2 = new Siticone.UI.WinForms.SiticoneGradientPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.addSongsPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headPhonePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
@@ -56,9 +62,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.previousPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nextPictureBox)).BeginInit();
             this.siticoneGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizePictureBox)).BeginInit();
             this.siticoneGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // addSongsPictureBox
@@ -110,7 +119,7 @@
             this.musicListBox.Location = new System.Drawing.Point(0, 64);
             this.musicListBox.Margin = new System.Windows.Forms.Padding(6);
             this.musicListBox.Name = "musicListBox";
-            this.musicListBox.Size = new System.Drawing.Size(1104, 493);
+            this.musicListBox.Size = new System.Drawing.Size(1083, 493);
             this.musicListBox.Sorted = true;
             this.musicListBox.TabIndex = 2;
             this.musicListBox.SelectedIndexChanged += new System.EventHandler(this.musiclistBox_SelectedIndexChanged);
@@ -123,7 +132,7 @@
             // 
             this.player.CausesValidation = false;
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(575, 8);
+            this.player.Location = new System.Drawing.Point(552, 284);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
             this.player.Size = new System.Drawing.Size(10, 32);
@@ -156,14 +165,14 @@
             this.progressBarSlider.Location = new System.Drawing.Point(273, 30);
             this.progressBarSlider.Name = "progressBarSlider";
             this.progressBarSlider.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.progressBarSlider.Size = new System.Drawing.Size(818, 60);
+            this.progressBarSlider.Size = new System.Drawing.Size(831, 60);
             this.progressBarSlider.TabIndex = 16;
             this.progressBarSlider.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(206)))), ((int)(((byte)(251)))));
-            this.progressBarSlider.Scroll += new System.EventHandler(this.progressBarSlider_Scroll);
             // 
             // playPictureBox
             // 
             this.playPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.playPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("playPictureBox.Image")));
             this.playPictureBox.Location = new System.Drawing.Point(99, 16);
             this.playPictureBox.Name = "playPictureBox";
@@ -176,6 +185,7 @@
             // previousPictureBox
             // 
             this.previousPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.previousPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.previousPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("previousPictureBox.Image")));
             this.previousPictureBox.Location = new System.Drawing.Point(195, 38);
             this.previousPictureBox.Name = "previousPictureBox";
@@ -197,11 +207,11 @@
             this.musicCurrentTime.Size = new System.Drawing.Size(55, 19);
             this.musicCurrentTime.TabIndex = 7;
             this.musicCurrentTime.Text = "00:00";
-            this.musicCurrentTime.Click += new System.EventHandler(this.musicCurrentTime_Click);
             // 
             // nextPictureBox
             // 
             this.nextPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.nextPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nextPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("nextPictureBox.Image")));
             this.nextPictureBox.Location = new System.Drawing.Point(11, 43);
             this.nextPictureBox.Name = "nextPictureBox";
@@ -217,7 +227,7 @@
             this.musicLength.BackColor = System.Drawing.Color.Transparent;
             this.musicLength.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.musicLength.ForeColor = System.Drawing.SystemColors.Control;
-            this.musicLength.Location = new System.Drawing.Point(1020, 80);
+            this.musicLength.Location = new System.Drawing.Point(1037, 80);
             this.musicLength.Name = "musicLength";
             this.musicLength.Size = new System.Drawing.Size(55, 19);
             this.musicLength.TabIndex = 8;
@@ -227,6 +237,11 @@
             // 
             this.siticoneGradientPanel1.AllowDrop = true;
             this.siticoneGradientPanel1.BackColor = System.Drawing.Color.White;
+            this.siticoneGradientPanel1.Controls.Add(this.volumeLabel);
+            this.siticoneGradientPanel1.Controls.Add(this.pictureBox4);
+            this.siticoneGradientPanel1.Controls.Add(this.volumeTrackBar);
+            this.siticoneGradientPanel1.Controls.Add(this.pictureBox2);
+            this.siticoneGradientPanel1.Controls.Add(this.currentMusicLabel);
             this.siticoneGradientPanel1.Controls.Add(this.musicLength);
             this.siticoneGradientPanel1.Controls.Add(this.nextPictureBox);
             this.siticoneGradientPanel1.Controls.Add(this.musicCurrentTime);
@@ -242,6 +257,65 @@
             this.siticoneGradientPanel1.ShadowDecoration.Parent = this.siticoneGradientPanel1;
             this.siticoneGradientPanel1.Size = new System.Drawing.Size(1104, 122);
             this.siticoneGradientPanel1.TabIndex = 7;
+            // 
+            // volumeLabel
+            // 
+            this.volumeLabel.AutoSize = true;
+            this.volumeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.volumeLabel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumeLabel.ForeColor = System.Drawing.Color.White;
+            this.volumeLabel.Location = new System.Drawing.Point(1034, 13);
+            this.volumeLabel.Name = "volumeLabel";
+            this.volumeLabel.Size = new System.Drawing.Size(59, 23);
+            this.volumeLabel.TabIndex = 22;
+            this.volumeLabel.Text = "100%";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(773, 7);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(48, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
+            // 
+            // volumeTrackBar
+            // 
+            this.volumeTrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.volumeTrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.volumeTrackBar.HoveredState.Parent = this.volumeTrackBar;
+            this.volumeTrackBar.IndicateFocus = false;
+            this.volumeTrackBar.Location = new System.Drawing.Point(827, 14);
+            this.volumeTrackBar.Name = "volumeTrackBar";
+            this.volumeTrackBar.Size = new System.Drawing.Size(202, 23);
+            this.volumeTrackBar.TabIndex = 100;
+            this.volumeTrackBar.TabStop = false;
+            this.volumeTrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(206)))), ((int)(((byte)(251)))));
+            this.volumeTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.volumeTrackBar_Scroll);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(294, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // currentMusicLabel
+            // 
+            this.currentMusicLabel.AutoSize = true;
+            this.currentMusicLabel.BackColor = System.Drawing.Color.Transparent;
+            this.currentMusicLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentMusicLabel.ForeColor = System.Drawing.Color.White;
+            this.currentMusicLabel.Location = new System.Drawing.Point(318, 16);
+            this.currentMusicLabel.Name = "currentMusicLabel";
+            this.currentMusicLabel.Size = new System.Drawing.Size(0, 16);
+            this.currentMusicLabel.TabIndex = 18;
             // 
             // closePictureBox
             // 
@@ -275,7 +349,6 @@
             this.siticoneGradientPanel2.Controls.Add(this.minimizePictureBox);
             this.siticoneGradientPanel2.Controls.Add(this.headPhonePictureBox);
             this.siticoneGradientPanel2.Controls.Add(this.closePictureBox);
-            this.siticoneGradientPanel2.Controls.Add(this.player);
             this.siticoneGradientPanel2.Controls.Add(this.addSongsPictureBox);
             this.siticoneGradientPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.siticoneGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(140)))));
@@ -286,6 +359,18 @@
             this.siticoneGradientPanel2.Size = new System.Drawing.Size(1104, 64);
             this.siticoneGradientPanel2.TabIndex = 13;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(99, 443);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(67, 95);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            // 
             // MusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,10 +380,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1104, 666);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.siticoneGradientPanel2);
             this.Controls.Add(this.siticoneGradientPanel1);
             this.Controls.Add(this.musicPlaying);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.player);
             this.Controls.Add(this.musicListBox);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.Color.Crimson;
@@ -318,10 +405,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nextPictureBox)).EndInit();
             this.siticoneGradientPanel1.ResumeLayout(false);
             this.siticoneGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizePictureBox)).EndInit();
             this.siticoneGradientPanel2.ResumeLayout(false);
             this.siticoneGradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,6 +436,12 @@
         private System.Windows.Forms.PictureBox closePictureBox;
         private System.Windows.Forms.PictureBox minimizePictureBox;
         private Siticone.UI.WinForms.SiticoneGradientPanel siticoneGradientPanel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label currentMusicLabel;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label volumeLabel;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private Siticone.UI.WinForms.SiticoneTrackBar volumeTrackBar;
     }
 }
 

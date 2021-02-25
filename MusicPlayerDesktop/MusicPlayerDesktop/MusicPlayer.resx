@@ -349,6 +349,32 @@
         l3CrSG3c0+Z8pvwFEG8TrCXba/f+F1MgwK2FkSlT/gtPssB69KUEBwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAiCAYAAAAZHFoXAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAoRJREFUWEftmIGNgkAQRS3BEiyBEijhOjg6wA60A+1AOrAES6AESrAE7n9g8bO7
+        woDmEowv+bkIM9zM7OywuvnygeTd39Wxha5Q3XxaGSlUQQx+VQmw6ifIBf5yAnXLHbpBObTrbr2dBNKq
+        vzMBnwv01kS4UWOBOy0GgVZNyHH2ndliWIUb1Ae73W7r0+mkwVMvg2BTqGjCHnLoTGbzC92hPtA0Teuq
+        agum16EAmBwh19u/kKklaAddIWXWSuh47MWqK979AJgwAYWZsygmYKurwUKYCuCPx3q329VlWbaPEdQG
+        igKzBMogfYC5JWDL1XOwlZ8SHY95ntf3O5MP8WwngYuuiGklYMd20gAYZwDHYwn1AXGj3m6afIjaQybg
+        5pJgUNFgfGB3bjxajt3lHo7HYKM+q7qiPpAZuLrKmDYm7DidHH0bPR2PVtQXMgNX7gky2tNKZ0+4Pzc/
+        0KDqSZL049GK+kNm4Mq+JozBBGz74Pg5g4JJ818JkO4RZj+YDhIg0RY6n3W/jKO+kBm4crSSOSvgCHy4
+        qwfBZFlmWg3PzwxcZ+0B2EU3scLVCFqqKGLHkgdqD5mBq6uO9V3Ak6ljdHIFq7Hf79/2IiNwO7TeTRKT
+        RwPaNNYPJn2iR4lYS6kNNAlcXPDEWn091F26y5MwywIaBHk8Ds9m3v0oMGMF2fP6Wg/epjFgp61DJqvv
+        Mzpu9ToUABP/NMpe5DNHgQ2T9s8xi7/YMOvouNVrUAD+KRNg0AyG33VHzz64z2nDo4C/6UwrNkWwwT0t
+        BgE+m9lM5OWvlApXY9BSosW0sQZw1Wb3vJXYaiymjbdZBQbNtjMds19ltT9sKTpuV83kaPzyOWw2f0lU
+        V5U0Nc8kAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAAhCAYAAADUIPtUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAL5JREFUSEvtlWENwjAQhSsBCUhAAhKQgANwAA7AwXCCBCQgAQnlu/UIzbi1V8IP
+        fvRLXpb0vXtbly0NHmKMF1TiqNEyBHtRBYL/X3RD20wrjZYhOC26qtUGg72oAoO9qAKDvUghsEA7NEhY
+        ddJrznwRphQ8xlgduwjjkHw3n0UsbpLXhFk03b8Hs8j7XnLMom/42dYGHX/D4j55TdinBkbLU82fYZjy
+        RZ/HWBn3QbhG8l/JAfjijuQmS40ZhPAEbblcGYiLgzkAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="closePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -393,6 +419,27 @@
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAHCAYAAAAbHC3MAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAABxJREFUOE9j+E9nALaQgU5g1EKqg4GzkH7g/38AXwUHCNI+AdUAAAAASUVORK5C
         YII=
+</value>
+  </data>
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEMAAABfCAYAAACz3nqTAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAA21JREFUeF69jLENgAAQhNx/aaWH7j6S0FDwwPuDF9T32ozXXlDfazNee0F9r814
+        7QX1vTbjtRfU91rHhfrhBfou1A8dF+qHF+i7UD90XKgfXqDvQv3QcaF+eIG+C/VDx4X64QX6LtQPHRfq
+        hxfou1A/dFyoH16g70L90HGhfniBvgv1Q8eF+uEF+i7UDx0X6ocX6LtQP3RcqB9eoO9C/dBxoX54gb4L
+        9UPHhfrhBfou1A8dF+qHF+i7UD90XKgfXqDvQv3QcaF+eIG+C/VDx4X64QX6LtQPHRfqhxfou1A/dFyo
+        H16g70L90HGhfniBvgv1Q8eF+uEF+i7UDx0X6ocX6LtQP3RcqB9eoO9C/dBxoX54gb4L9UPHhfrhBfou
+        1A8dF+qHF+i7UD90XKgfXqDvQv3QcaF+eIG+C/VDx4X64QX6LtQPHRfqhxfou1A/dFyoH16g70L90HGh
+        fniBvgv1Q8eF+uEF+i7UDx0X6ocX6LtQP3RcqB9eoO9C/dBxoX54gb4L9UPHhfrhBfou1A8dF+qHF+i7
+        UD90XKgfXqDvQv3QcaF+eIG+C/VDx4X64QX6LtQPHRfqhxfou1A/dFyoH16g70L90HGhfniBvgv1Q8eF
+        +uEF+i7UDx0X6ocX6LtQP3RcqB9eoO9C/dBxoX54gb4L9UPHhfrhBfou1A8dF+qHF+i7UD90XKgfXqDv
+        Qv3QcaF+eIG+C/VDx4X64QX6LtQPHRfqhxfou1A/dFyoH16g70L90HGhfniBvgv1Q8eF+uEF+i7UDx0X
+        6ocX6LtQP3RcqB9eoO9C/dBxoX54gb4L9UPHhfrhBfou1A8dF+qHF+i7UD90XKgfXqDvQv3QcaF+eIG+
+        C/VDx4X64QX6LtQPHRfqhxfou1A/dFyoH16g70L90HGhfniBvgv1Q8eF+uEF+i7UDx0X6ocX6LtQP3Rc
+        qB9eoO9C/dBxoX54gb4L9UPHhfrhBfou1A8dF+qHF+i7UD90XKgfXqDvQv3QcaF+eIG+C/VDx4X64QX6
+        LtQPHRfqhxfou1A/dFyoH16g70L90HGhfniBvgv1Q8eF+uEF+i7UDx0X6ocX6LtQP3RcqB9eoO9C/dBx
+        oX54gb4L9UPHhfrhBfou1A8zXntBfa/NeO0F9b0247UX1PfajNdeUN9rM157QX0Pfd4POLJCYSQIZ80A
+        AAAASUVORK5CYII=
 </value>
   </data>
 </root>
