@@ -6,6 +6,11 @@
 
 - C#
 
+### 25/02/2021
+
+- Mudança na UI do Player e do Cabeçalho
+- Mudança no tamanho do icones
+
 ### 24/02/2021
 
 - Incluindo volume.
