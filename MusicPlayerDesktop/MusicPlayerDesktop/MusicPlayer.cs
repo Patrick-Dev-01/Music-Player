@@ -58,13 +58,16 @@ namespace MusicPlayerDesktop
         private void musiclistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // as musicas serão tocadas depois que o usuário clicar na própria musica
+            if (player.URL == "")
+            {
+                player.URL = paths[musicListBox.SelectedIndex];
+            }
             player.URL = paths[musicListBox.SelectedIndex];
             currentMusicLabel.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             player.Ctlcontrols.play();
             // remover a extensão do arquivo .mp3
             musicPlaying.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             musicProgress.Start();
-           
         }
 
         private void playPictureBox_Click(object sender, EventArgs e)
@@ -126,8 +129,8 @@ namespace MusicPlayerDesktop
         private void musicProgress_Tick(object sender, EventArgs e)
         {
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying) {
-                progressBarSlider.Maximum = (int)player.Ctlcontrols.currentItem.duration;
-                progressBarSlider.Value = (int)player.Ctlcontrols.currentPosition;
+                siticoneProgressBar1.Maximum = (int)player.Ctlcontrols.currentItem.duration;
+                siticoneProgressBar1.Value = (int)player.Ctlcontrols.currentPosition;
             }
 
             musicCurrentTime.Text = player.Ctlcontrols.currentPositionString;
@@ -138,15 +141,6 @@ namespace MusicPlayerDesktop
         {
             player.settings.volume = volumeTrackBar.Value;
             volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
-        }
-
-        private void progressBarSlider_ValueChanged(object sender, EventArgs e)
-        {
-            if (player.playState != WMPLib.WMPPlayState.wmppsPlaying) {
-                progressBarSlider.Value = (int)player.Ctlcontrols.currentPosition;
-                musicCurrentTime.Text = player.Ctlcontrols.currentPositionString;     
-            }
-           
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
