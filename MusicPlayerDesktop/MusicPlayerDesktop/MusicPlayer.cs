@@ -24,6 +24,76 @@ namespace MusicPlayerDesktop
         public const int WM_HOTKEY = 0x312;
         public const int ALT = 0x1;
 
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        public void NextMusic()
+       {
+            player.Ctlcontrols.stop();
+            ChangePlayPicture("Pause.png");
+            // se for a ultima música, ele volta para primeira
+            if (musicListBox.SelectedIndex == paths.Length - 1)
+            {
+                player.URL = paths[musicListBox.SelectedIndex = 0];
+                nextMusicName = files[musicListBox.SelectedIndex = 0];
+                musicListBox.SelectedIndex = musicListBox.SelectedIndex = 0;
+            }
+
+            // se não, ele vai para próxima
+            else
+            {
+                player.URL = paths[musicListBox.SelectedIndex + 1];
+                nextMusicName = files[musicListBox.SelectedIndex + 1];
+                musicListBox.SelectedIndex = musicListBox.SelectedIndex + 1;
+            }
+
+            currentMusicLabel.Text = nextMusicName.Substring(0, nextMusicName.Length - 4); ;
+            player.Ctlcontrols.play();
+            ChangePlayPicture("Playing.png");
+        }
+
+        public void PreviousMusic() {
+            player.Ctlcontrols.stop();
+            ChangePlayPicture("Pause.png");
+
+            if (musicListBox.SelectedIndex > 0)
+            {
+                player.URL = paths[musicListBox.SelectedIndex - 1];
+                previousMusicName = files[musicListBox.SelectedIndex - 1];
+                musicListBox.SelectedIndex = musicListBox.SelectedIndex - 1;
+            }
+
+            else
+            {
+                player.URL = paths[musicListBox.SelectedIndex = files.Length - 1];
+                previousMusicName = files[musicListBox.SelectedIndex = files.Length - 1];
+                musicListBox.SelectedIndex = files.Length - 1;
+            }
+
+            currentMusicLabel.Text = previousMusicName.Substring(0, previousMusicName.Length - 4);
+            player.Ctlcontrols.play();
+            ChangePlayPicture("Playing.png");
+        }
+
+        public void ChangePlayPicture(string image) {
+            playPictureBox.Image = Image.FromFile(image.ToString());
+        }
+      
+
         protected override void WndProc(ref Message msg)
         {
             if (msg.Msg == WM_HOTKEY && msg.WParam == (IntPtr)0)
@@ -31,48 +101,27 @@ namespace MusicPlayerDesktop
            
                 IntPtr lParamAltLeft = (IntPtr)2424833;
                 IntPtr lParamAltRight = (IntPtr)2555905;
+                IntPtr lParamAltP = (IntPtr)5242881;
 
                 if (msg.LParam == lParamAltLeft) {
-                    player.Ctlcontrols.stop();
-
-                    if (musicListBox.SelectedIndex > 0)
-                    {
-                        player.URL = paths[musicListBox.SelectedIndex - 1];
-                        previousMusicName = files[musicListBox.SelectedIndex - 1];
-                        musicListBox.SelectedIndex = musicListBox.SelectedIndex - 1;
-                    }
-
-                    else
-                    {
-                        player.URL = paths[musicListBox.SelectedIndex = files.Length - 1];
-                        previousMusicName = files[musicListBox.SelectedIndex = files.Length - 1];
-                        musicListBox.SelectedIndex = files.Length - 1;
-                    }
-
-                    currentMusicLabel.Text = previousMusicName.Substring(0, previousMusicName.Length - 14);
-                    player.Ctlcontrols.play();
+                    PreviousMusic();
                  }
 
                 if (msg.LParam == lParamAltRight) {
-                    player.Ctlcontrols.stop();
-                    // se for a ultima música, ele volta para primeira
-                    if (musicListBox.SelectedIndex == paths.Length - 1)
+                    NextMusic();
+                }
+
+                if (msg.LParam == lParamAltP) {
+                    if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                     {
-                        player.URL = paths[musicListBox.SelectedIndex = 0];
-                        nextMusicName = files[musicListBox.SelectedIndex = 0];
-                        musicListBox.SelectedIndex = musicListBox.SelectedIndex = 0;
+                        ChangePlayPicture("Pause.png");
+                        player.Ctlcontrols.pause();
                     }
 
-                    // se não, ele vai para próxima
-                    else
-                    {
-                        player.URL = paths[musicListBox.SelectedIndex + 1];
-                        nextMusicName = files[musicListBox.SelectedIndex + 1];
-                        musicListBox.SelectedIndex = musicListBox.SelectedIndex + 1;
+                    else {
+                        ChangePlayPicture("Playing.png");
+                        player.Ctlcontrols.play();
                     }
-
-                    currentMusicLabel.Text = nextMusicName.Substring(0, nextMusicName.Length - 14); ;
-                    player.Ctlcontrols.play();
                 }
             }
             base.WndProc(ref msg);
@@ -91,8 +140,10 @@ namespace MusicPlayerDesktop
             volumeTrackBar.Value = 100;
             volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
 
+            // Registrando teclas de atalhos
             RegisterHotKey(this.Handle, 0, ALT, (int)Keys.Left);
             RegisterHotKey(this.Handle, 0, ALT, (int)Keys.Right);
+            RegisterHotKey(this.Handle, 0, ALT, (int)Keys.P);
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -122,16 +173,17 @@ namespace MusicPlayerDesktop
     
         private void musiclistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // as musicas serão tocadas depois que o usuário clicar na própria musica
+            // Se não tiver nenhuma musica selecionada, a primeira q ele selecionar ele irá tocar
             if (player.URL == "")
             {
                 player.URL = paths[musicListBox.SelectedIndex];
             }
             player.URL = paths[musicListBox.SelectedIndex];
-            currentMusicLabel.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 14);
+            currentMusicLabel.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             player.Ctlcontrols.play();
+            ChangePlayPicture("Playing.png");
             // remover a extensão do arquivo .mp3
-            musicPlaying.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 14);
+            musicPlaying.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             musicProgress.Start();
         }
 
@@ -139,63 +191,31 @@ namespace MusicPlayerDesktop
         {
             // tocar a musica atual ao licar no botão play
 
+            // pausar musica
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 player.Ctlcontrols.pause();
-                //playPictureBox.Image = Image.FromFile("C:/Playing.png");
+                ChangePlayPicture("Pause.png");
             }
 
+            // reproduzir
             else {
                 player.Ctlcontrols.play();
+                ChangePlayPicture("Playing.png");
             }
         }
 
         private void nextPictureBox_Click(object sender, EventArgs e)
         {
-            player.Ctlcontrols.stop();
-            // se for a ultima música, ele volta para primeira
-            if (musicListBox.SelectedIndex == paths.Length - 1)
-            {
-                player.URL = paths[musicListBox.SelectedIndex = 0];
-                nextMusicName = files[musicListBox.SelectedIndex = 0];
-                musicListBox.SelectedIndex = musicListBox.SelectedIndex = 0;
-            }
-
-            // se não, ele vai para próxima
-            else {
-                player.URL = paths[musicListBox.SelectedIndex + 1];
-                nextMusicName = files[musicListBox.SelectedIndex + 1];
-                musicListBox.SelectedIndex = musicListBox.SelectedIndex + 1;
-            }
-
-            currentMusicLabel.Text = nextMusicName.Substring(0, nextMusicName.Length - 14); ;
-            player.Ctlcontrols.play();
+            NextMusic();
         }
         private void previousPictureBox_Click(object sender, EventArgs e)
         {
-            player.Ctlcontrols.stop();
-
-            if (musicListBox.SelectedIndex > 0)
-            {
-                player.URL = paths[musicListBox.SelectedIndex - 1];
-                previousMusicName = files[musicListBox.SelectedIndex - 1];
-                musicListBox.SelectedIndex = musicListBox.SelectedIndex - 1;
-            }
-
-            else {
-                player.URL = paths[musicListBox.SelectedIndex = files.Length - 1];
-                previousMusicName = files[musicListBox.SelectedIndex = files.Length - 1];
-                musicListBox.SelectedIndex = files.Length - 1;
-            }
-          
-            currentMusicLabel.Text = previousMusicName.Substring(0, previousMusicName.Length - 14);
-            player.Ctlcontrols.play();
+            PreviousMusic();
         }
 
         private void musicProgress_Tick(object sender, EventArgs e)
         {
-            int duration;
-
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying) {
                 siticoneProgressBar1.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 siticoneProgressBar1.Value = (int)player.Ctlcontrols.currentPosition;
