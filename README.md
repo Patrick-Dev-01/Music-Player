@@ -9,7 +9,7 @@
 
 - Clone o repositório.
 - Entre na pasta e entre no seguinte diretório: MusicPlayerDesktop/bin/debug
-- Depois clique no executavel com o icone de headset, localize sua pasta de musícas.
+- Depois clique no executável com o icone de headset, localize sua pasta de musícas.
 
 ### HotKeys (Teclas de atalho)
 
@@ -21,8 +21,8 @@
 
 ### 27/02/2021
 
-- Definindo novas teclas de atalhao para pausar e reproduzir novamente.
-- Refatoração de código, diminuindo repetições desnessários em blocos grandes de código.
+- Definindo novas teclas de atalho para pausar e reproduzir novamente.
+- Refatoração de código, diminuindo repetições desnecessários em blocos grandes de código.
 - Movimentar a janela do player (Quando o formulário está sem a borda padrão é necessário criar essa função manualmente). 
 
 ### 26/02/2021
