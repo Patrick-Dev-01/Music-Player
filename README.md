@@ -6,6 +6,10 @@
 
 - C#
 
+### 26/02/2021
+
+- Configuração de Hotkeys (teclas de atalho) para mudança de musicas.
+
 ### 25/02/2021
 
 - Mudança na UI do Player e do Cabeçalho
@@ -17,6 +21,7 @@
 - Incluindo volume.
 - Correção nas trocas de musicas
 - Tempo atual musica e tempo total da musica.
+
 ### 23/02/2021
 
 - Cabeçalho personalizado
