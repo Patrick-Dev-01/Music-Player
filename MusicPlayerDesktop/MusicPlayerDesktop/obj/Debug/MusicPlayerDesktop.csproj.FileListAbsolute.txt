@@ -14,3 +14,7 @@ C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\Interop
 C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\AxInterop.WMPLib.dll
 C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csproj.ResolveComReference.cache
 C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.csproj.CopyComplete
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\MusicPlayerDesktop.exe.manifest
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\bin\Debug\MusicPlayerDesktop.application
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.exe.manifest
+C:\projects\Music-Player\MusicPlayerDesktop\MusicPlayerDesktop\obj\Debug\MusicPlayerDesktop.application

@@ -44,7 +44,7 @@ namespace MusicPlayerDesktop
         public void NextMusic()
        {
             player.Ctlcontrols.stop();
-            ChangePlayPicture("Pause.png");
+            ChangePlayPicture(false);
             // se for a ultima música, ele volta para primeira
             if (musicListBox.SelectedIndex == paths.Length - 1)
             {
@@ -63,12 +63,12 @@ namespace MusicPlayerDesktop
 
             currentMusicLabel.Text = nextMusicName.Substring(0, nextMusicName.Length - 4); ;
             player.Ctlcontrols.play();
-            ChangePlayPicture("Playing.png");
+            ChangePlayPicture(true);
         }
 
         public void PreviousMusic() {
             player.Ctlcontrols.stop();
-            ChangePlayPicture("Pause.png");
+            ChangePlayPicture(false);
 
             if (musicListBox.SelectedIndex > 0)
             {
@@ -86,13 +86,21 @@ namespace MusicPlayerDesktop
 
             currentMusicLabel.Text = previousMusicName.Substring(0, previousMusicName.Length - 4);
             player.Ctlcontrols.play();
-            ChangePlayPicture("Playing.png");
+            ChangePlayPicture(true);
         }
 
-        public void ChangePlayPicture(string image) {
-            playPictureBox.Image = Image.FromFile(image.ToString());
+        public void ChangePlayPicture(bool isPlaying) {
+
+            if (isPlaying)
+            {
+                playState.Image = this.playingPictureBox.Image;
+            }
+
+            else {
+                playState.Image = this.pausePictureBox.Image;
+            }
+            
         }
-      
 
         protected override void WndProc(ref Message msg)
         {
@@ -114,12 +122,12 @@ namespace MusicPlayerDesktop
                 if (msg.LParam == lParamAltP) {
                     if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                     {
-                        ChangePlayPicture("Pause.png");
+                        ChangePlayPicture(false);
                         player.Ctlcontrols.pause();
                     }
 
                     else {
-                        ChangePlayPicture("Playing.png");
+                        ChangePlayPicture(true);
                         player.Ctlcontrols.play();
                     }
                 }
@@ -139,15 +147,12 @@ namespace MusicPlayerDesktop
         { 
             volumeTrackBar.Value = 100;
             volumeLabel.Text = volumeTrackBar.Value.ToString() + "%";
+            playState.Image = pausePictureBox.Image;
 
             // Registrando teclas de atalhos
             RegisterHotKey(this.Handle, 0, ALT, (int)Keys.Left);
             RegisterHotKey(this.Handle, 0, ALT, (int)Keys.Right);
             RegisterHotKey(this.Handle, 0, ALT, (int)Keys.P);
-        }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void minimizePictureBox_Click(object sender, EventArgs e)
@@ -181,7 +186,7 @@ namespace MusicPlayerDesktop
             player.URL = paths[musicListBox.SelectedIndex];
             currentMusicLabel.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             player.Ctlcontrols.play();
-            ChangePlayPicture("Playing.png");
+            ChangePlayPicture(true);
             // remover a extensão do arquivo .mp3
             musicPlaying.Text = files[musicListBox.SelectedIndex].Substring(0, files[musicListBox.SelectedIndex].Length - 4);
             musicProgress.Start();
@@ -195,13 +200,13 @@ namespace MusicPlayerDesktop
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 player.Ctlcontrols.pause();
-                ChangePlayPicture("Pause.png");
+                ChangePlayPicture(false);
             }
 
             // reproduzir
             else {
                 player.Ctlcontrols.play();
-                ChangePlayPicture("Playing.png");
+                ChangePlayPicture(true);
             }
         }
 
