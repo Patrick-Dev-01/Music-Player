@@ -19,6 +19,10 @@
 
 ## Updates
 
+### 28/02/2021
+
+- Passar para a proxima música quando a atual terminar.
+
 ### 27/02/2021
 
 - Definindo novas teclas de atalho para pausar e reproduzir novamente.

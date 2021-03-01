@@ -221,6 +221,10 @@ namespace MusicPlayerDesktop
                 siticoneProgressBar1.Value = (int)player.Ctlcontrols.currentPosition;
             }
 
+            if (player.playState == WMPLib.WMPPlayState.wmppsStopped) {
+                NextMusic();
+            }
+
             musicCurrentTime.Text = player.Ctlcontrols.currentPositionString;
             musicLength.Text = player.Ctlcontrols.currentItem.durationString.ToString();
         }
